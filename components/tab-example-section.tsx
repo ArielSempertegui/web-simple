@@ -1,17 +1,20 @@
+'use client'
 import { EXAMPLES } from "@/scripts/data";
-import { useState } from 'react'
+import { useState } from "react"
 
 export default function TabExampleSection() {
 
-  const [isSelected, setSelected] = useState(false)
+  const [isSelect, setSelected] = useState(false)
+  function handle(){
 
+  }
   return (
     <>
         <section id="tab-section" className="flex flex-col my-12 mx-4 md:mx-12">
-          {/* <TabButton isSelected={isSelected}>EXAMPLES.components.title</TabButton>
-          <TabButton isSelected={isSelected}>EXAMPLES.jsx.title</TabButton>
-          <TabButton isSelected={isSelected}>EXAMPLES.props.title</TabButton>
-          <TabButton isSelected={isSelected}>EXAMPLES.state.title</TabButton> */}
+          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.components.title}</TabButton>
+          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.jsx.title}</TabButton>
+          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.props.title}</TabButton>
+          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.state.title}</TabButton>
           <TabExample />
         </section>
     </>
