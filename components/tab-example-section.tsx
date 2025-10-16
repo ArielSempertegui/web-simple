@@ -4,17 +4,12 @@ import { useState } from "react"
 
 export default function TabExampleSection() {
 
-  const [isSelect, setSelected] = useState(false)
-  function handle(){
-
-  }
   return (
     <>
         <section id="tab-section" className="flex flex-col my-12 mx-4 md:mx-12">
-          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.components.title}</TabButton>
-          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.jsx.title}</TabButton>
-          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.props.title}</TabButton>
-          <TabButton isSelected={isSelect} onClick={handle} >{EXAMPLES.state.title}</TabButton>
+          <div className="flex justify-start space-x-2">
+            <TabButton data={EXAMPLES} />
+          </div>
           <TabExample />
         </section>
     </>
@@ -22,22 +17,30 @@ export default function TabExampleSection() {
 }
 
 export function TabButton({
-  children, onClick, isSelected, className
-} : {
-  children: string;
-  onClick: () => void;
-  isSelected: boolean;
-  className?: string;
-}) {
-  let cssprops = className || "inline-block m-2 p-3 text-slate-300 rounded-md hover:bg-slate-900 hover:text-white"
-  if(isSelected){
-    cssprops += " bg-blue-500 text-white"
-  }
+    data, className,
+  } : {
+    data: {
+      title: string;
+      description: string;
+      code: string;
+    }[];
+    className?: string;
+  }) {
+
+  const [index, setIndex] = useState(3)
+  const handleClick = (arrayIndex: number) => setIndex(arrayIndex)
+
   return (
     <>
-        <button className={cssprops} onClick={onClick}>
-          {children}
+      {data.map((elemento, arrayIndex) =>
+        <button 
+          onClick={() => handleClick(arrayIndex)}
+          key={elemento.title}
+          className={`${className || 'inline-block m-2 p-3 text-slate-300 rounded-md'} ${arrayIndex === index ? 'bg-blue-500 text-white' : 'hover:bg-slate-900 hover:text-white'}`}
+        >
+          {elemento.title}
         </button>
+      )}
     </>
   )
 }
@@ -45,7 +48,7 @@ export function TabButton({
 export function TabExample() {
   return (
     <>
-        <div>que tal</div>
+        <div>que tal estamos</div>
     </>
   )
 }

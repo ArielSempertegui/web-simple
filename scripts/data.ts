@@ -30,8 +30,8 @@ export const CORE_CONCEPTS = [
   },
 ];
 
-export const EXAMPLES = {
-  components: {
+export const EXAMPLES = [
+  {
     title: 'Componentes',
     description:
       'Los components son las piezas básicas de las aplicaciones en React. Un componente es un módulo autocontenido (HTML + CSS opcional + JS) que muestra una salida.',
@@ -40,7 +40,7 @@ function Welcome() {
   return <h1>Hello, World!</h1>;
 }`,
   },
-  jsx: {
+  {
     title: 'JSX/TSX',
     description:
       'JSX es una extensión de la sintaxis de JavaScript. Se parece a una plantilla, pero tiene toda la potencia de JavaScrip (p. ej. puede mostrar contenido dinámico).',
@@ -50,7 +50,7 @@ function Welcome() {
   <p>Time to learn React!</p>
 </div>`,
   },
-  props: {
+  {
     title: 'Props',
     description:
       'Los componentes pueden aceptar entradas de cualquier tipo de datos llamadas props. Son como los argumentos de las funciones.',
@@ -59,7 +59,7 @@ function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }`,
   },
-  state: {
+  {
     title: 'State',
     description:
       'El estado permite a los compomentes de React cambiar la salida a lo largo del tiempo en respuesta a eventos y/o respuestas de red.',
@@ -79,4 +79,4 @@ function Counter() {
   );
 }`,
   },
-};
+];
