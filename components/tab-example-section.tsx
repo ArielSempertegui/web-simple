@@ -8,7 +8,9 @@ export default function TabExampleSection() {
     <>
         <section id="tab-section" className="flex flex-col my-12 mx-4 md:mx-12">
           <div className="flex justify-start space-x-2">
-            <TabButton data={EXAMPLES} />
+            {EXAMPLES.map((elemento, arrayIndex) =>
+              <TabButton key={elemento.title} title={elemento.title} arrayIndex={arrayIndex}/>
+            )}
           </div>
           <TabExample />
         </section>
@@ -17,13 +19,10 @@ export default function TabExampleSection() {
 }
 
 export function TabButton({
-    data, className,
+    title, arrayIndex, className,
   } : {
-    data: {
-      title: string;
-      description: string;
-      code: string;
-    }[];
+    title: string;
+    arrayIndex: number;
     className?: string;
   }) {
 
@@ -32,20 +31,18 @@ export function TabButton({
 
   return (
     <>
-      {data.map((elemento, arrayIndex) =>
-        <button 
-          onClick={() => handleClick(arrayIndex)}
-          key={elemento.title}
-          className={`${className || 'inline-block m-2 p-3 text-slate-300 rounded-md'} ${arrayIndex === index ? 'bg-blue-500 text-white' : 'hover:bg-slate-900 hover:text-white'}`}
-        >
-          {elemento.title}
-        </button>
-      )}
+      <button 
+        onClick={() => handleClick(arrayIndex)}
+        className={`${className || 'inline-block m-2 p-3 text-slate-300 rounded-md'} ${arrayIndex === index ? 'bg-blue-500 text-white' : 'hover:bg-slate-900 hover:text-white'}`}
+      >
+        {title}
+      </button>
     </>
   )
 }
 
 export function TabExample() {
+  
   return (
     <>
         <div>que tal estamos</div>
