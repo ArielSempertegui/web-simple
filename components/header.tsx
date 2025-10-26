@@ -2,7 +2,6 @@ import logoHeader from '@/public/images/react-core-concepts.png'
 import Image from 'next/image'
 
 export default function Header() {
-  
   return (
     <>
       <header id="cabecera" className="flex flex-col items-center justify-center">

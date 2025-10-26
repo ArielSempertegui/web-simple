@@ -2,7 +2,6 @@ import Image, { StaticImageData } from 'next/image'
 import { CORE_CONCEPTS } from '@/scripts/data';
 
 export default function CoreConcept(){
-
     return(
         <>
             <section id="conceptos" className="flex flex-col m-12 justify-center bg-violet-800 min-w-44">
@@ -19,8 +18,6 @@ export default function CoreConcept(){
         </>
     )
 }
-
-
 
 export function CoreConceptListItem({
         image, title, description
