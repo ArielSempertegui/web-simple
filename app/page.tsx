@@ -9,8 +9,8 @@ export default function Home() {
     <>
       <Header />
       <nav className="flex flex-col md:flex-row bg-violet-900 justify-center md:justify-between">
-        <Dropdown menuText="Dropdown" />
-        <Dropdown menuText="madremia" />
+        <Dropdown menuText="MenuLeft" />
+        <Dropdown menuText="MenuRight" />
       </nav>
       <CoreConcept />
       <TabExampleSection />
